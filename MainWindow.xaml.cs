@@ -48,7 +48,6 @@ namespace TcpGameClient
 
             txtDestPort.Text = "55000";
             txtIpAdd.Text = GetLocalIPAddress();
-            txtTime.Text = "0";
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -149,7 +148,10 @@ namespace TcpGameClient
         /// <param name="n"></param>
         private void SendData(string n)     
         {
-           socket.Send(Encoding.ASCII.GetBytes(n));
+            if(n != null && socket != null)
+            {
+                socket.Send(Encoding.ASCII.GetBytes(n));
+            }
         }
 
         /// <summary>

@@ -173,7 +173,10 @@ namespace TcpGameServer
         /// <param name="n"></param>
         private void SendData(string n)
         {
-            s.Send(Encoding.ASCII.GetBytes(n));
+            if(n != null && s != null)
+            {
+                s.Send(Encoding.ASCII.GetBytes(n));
+            }
         }
 
         /// <summary>
